@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>会议管理</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <script src="./js/vue.js"></script>
+    <script src="js/config.js"></script>
+    <script>
+        var EventBus = new Vue();
+
+        Object.defineProperties(Vue.prototype, {
+            $bus: {
+                get: function () {
+                    return EventBus
+                }
+            }
+        })
+    </script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="js/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="js/element-ui/lib/index.js"></script>
+    <script src="img/base64Img.js"></script>
+    <script src="js/utils.js"></script>
+
+</head>
+<body>
+<div id="root">
+
+</div>
+<script>
+    //创建基础组件，实现复用
+    // import de from "./js/element-ui/src/locale/lang/de";
+    // import fa from "./js/element-ui/src/locale/lang/fa";
+
+    Vue.component(
+        'video-layout', {
+            template: `
+              <div :class="{ 'focus': style_name, 'fullScreen':cur_index==fcIndex  }" class="every_ele"
+                   :ref="'list_'+cur_index">
+              <div class="video_top" v-bind:class="{'little_green':style_name&&list.length>0}">
+                <span>
+                   <span>{{ cur_index }}</span>
+                  <span style="margin-left: 8px">({{ ele.timeSecond }}s)</span>
+                </span>
+
+                <span class="video_right">
+                     <p v-html="fullscreenSvg" class="full_sc" @click="fullScreen"></p>
+                    <p v-html="videoSvg" v-if="!isPoll"></p>
+                  </span>
+              </div>
+
+              <el-table
+                  v-if="list.length"
+                  :show-header="false"
+                  :data="list"
+                  style="width: 100%;height: calc(100% - 30px);overflow: auto;">
+                <el-table-column
+                    type="selection"
+                    width="55">
+                </el-table-column>
+
+                <el-table-column
+                    width="180">
+                  <template slot-scope="scope">
+                    <el-popover trigger="hover" placement="top">
+                        <span v-html="scope.row">
+
+                        </span>
+                      <div slot="reference" class="name-wrapper">
+                        <el-tag size="medium"><span v-html="scope.row"> </span></el-tag>
+                      </div>
+                    </el-popover>
+                  </template>
+                </el-table-column>
+                <el-table-column>
+                  <template slot-scope="scope" style="display: flex">
+                    <el-button
+                        size="mini"
+
+                        icon="el-icon-top"
+
+                        @click="handleTop(scope.$index, scope.row)"></el-button>
+                    <el-button
+                        size="mini"
+                        icon="el-icon-bottom"
+
+                        @click="handleBot(scope.$index, scope.row)"></el-button>
+                    <el-button
+                        size="mini"
+                        icon="el-icon-delete"
+
+                        @click="handleDelete(scope.$index, scope.row)"></el-button>
+
+                  </template>
+                </el-table-column>
+              </el-table>
+
+              </div>`,
+            data() {
+                return {
+                    fullscreenSvg: image.fullscreenSvg,
+                    videoSvg: image.videoSvg,
+                    list: [],
+                    fcIndex: '',
+                    isPoll: config_s.isPoll
+                }
+            },
+            mounted: function () {
+                let cur_ref = `list_${this.cur_index}`
+                console.log(this.ele)
+
+
+                function getParent(node, target, dep) {
+                    console.log('start.......')
+
+                    for (let i = 0; i < dep; i++) {
+                        if (node == target) {
+                            return true
+                        } else {
+                            if (!node || (node && !node.parentNode)) {
+                                break;
+                            }
+                            node = node.parentNode;
+
+
+                        }
+                    }
+                    return false;
+
+                }
+
+                this.$bus.$on('addList', ($event) => {
+
+                    if (getParent($event.target, this.$refs[cur_ref], 20)) {
+                        this.list.push($event.html);
+                    }
+                })
+                this.$bus.$on('replaceList', ($event) => {
+                    if (this.$refs[cur_ref] == $event.target) {
+                        this.list = $event.html;
+                    }
+                })
+                this.$bus.$on('clear', ($event) => {
+                    this.list = [];
+                    this.fcIndex = '';
+                })
+            },
+            props: ['style_name', 'cur_index', 'ele'],
+            methods: {
+                fullScreen: function () {
+                    if (this.fcIndex == this.cur_index) {
+                        this.fcIndex = ''
+                    } else {
+                        this.fcIndex = this.cur_index;
+                    }
+
+                },
+                handleTop: function (index, row) {
+                    console.log(index, row)
+                    if (index === 0) {
+                        this.$message({
+                            message: '该项已经置顶！',
+                            type: 'warning'
+                        });
+                        return
+                    } else {
+                        this.list.splice(index - 1, 2, this.list[index], this.list[index - 1])
+
+                    }
+
+                },
+                handleBot: function (index, row) {
+                    if (index == this.list.length - 1) {
+                        this.$message({
+                            message: '该项已是最后一项！',
+                            type: 'warning'
+                        });
+                        return
+                    } else {
+                        this.list.splice(index, 2, this.list[index + 1], this.list[index])
+                    }
+
+                },
+                handleDelete: function (index, row) {
+                    this.list.splice(index, 1)
+
+                },
+
+
+            }
+        }
+    )
+    Vue.component(
+        'res-list', {
+            template: `
+              <div>
+              <div v-for="(item,index) in list_data" :key="item.name" class="cfr_list" :data-id="index"
+                   @mousedown="()=>selectEle(index)">
+                <img :src="item.re_s" class="cfr_img"/>
+                <span>{{ item.name }}</span>
+
+              </div>
+              </div>
+            `,
+            data() {
+                return {
+                    name: "Vue"
+                }
+            },
+            props: ['list_data'],
+            mounted: function () {
+
+
+            },
+            methods: {
+                selectEle: function (index) {
+                    let cur_ele = document.getElementsByClassName('cfr_list');
+                    if (window.getSelection) {
+                        let range = document.createRange();
+                        range.selectNodeContents(cur_ele[index]);
+                        let selection = window.getSelection();
+                        selection.removeAllRanges();
+                        selection.addRange(range)
+                    } else if (document.selection) {
+                        //for ie
+                        let range = document.body.createTextRange()
+                        range.moveToElementText(this)
+                        range.select();
+                    }
+
+                }
+            }
+        }
+    );
+
+
+    //初始化选项数据,假数据
+    let optionArr = [];
+    let notInclueArr = [11, 12, 14, 17, 19, 21, 22, 23]
+    for (let i = 1; i < 26; i++) {
+        let label = toChineseNum(i) + CH_L;
+        let value = i;
+        if (!notInclueArr.includes(i)) {
+            optionArr.push({
+                label,
+                value
+            })
+        }
+
+
+    }
+    console.log(optionArr)
+
+    new Vue({
+        el: '#root',
+        data: function () {
+            return {
+                list_data: [
+                    {name: '中船测试', re_s: image.re_s},
+                    {name: '中船测试22222222', re_s: image.re_s}
+                ],
+                options: optionArr,
+                value: 1,
+                imaArr: image.screen['1'] || [],
+                selectKey: 1,
+                layoutArr: [{timeSecond: config_s.defaultTime}],//创建需要渲染的video框数组
+                selectItem: 0,//选中的item项
+                selectedImages: 0,//右侧点击切换布局
+                classLayout: '',
+                nums: config_s.defaultTime
+            }
+        },
+        methods: {
+            selectChange: function (e) {
+                this.selectKey = e;
+                this.imaArr = image.screen[e];
+                this.layoutArr.length = 0;
+                this.layoutArr = Array.from(new Array(e), () => {
+                    return {timeSecond: config_s.defaultTime}
+                })
+                this.selectItem = 0;
+                this.swicthCurLayout(0, this.imaArr[0].location || '')//初始化选择
+                this.getItemFocus(0);
+                this.$bus.$emit('clear', {});
+            },
+            getItemFocus: function (index) {
+                this.selectItem = index;
+
+            },
+            swicthCurLayout: function (index, classLayout) {
+                this.selectedImages = index;
+                this.classLayout = classLayout;
+            },
+            handleChange: function (value) {
+                //根据获取视图的index值进行绑定
+                this.layoutArr[this.selectItem].timeSecond = value;
+
+                console.log(value);
+                //this.selectedImages
+
+            }
+        },
+        mounted: function () {
+            this.getItemFocus(0)
+            this.swicthCurLayout(0, this.imaArr[0].location || '')//初始化选择
+        },
+        template: `
+          <div class="container_out">
+          <el-row>
+            <el-col :span="12">
+              <div class="grid-content left_video_source common_style">
+                <div class="text_video">
+                  视频源
+
+                </div>
+                <div class="cfr_text">
+                  会场
+                </div>
+                <div class="cfr_source">
+                  <res-list v-bind:list_data="list_data"/>
+
+                </div>
+              </div>
+            </el-col>
+            <el-col :span="12">
+              <div class="right_layout common_style">
+                <div class="right_title">
+                      <span class="text_video">
+                        设置视频源
+                      </span>
+                  <span class="the_tips">
+                        自动填充剩余画面
+                      </span>
+                </div>
+                <div class="right_select">
+                  <el-select v-model="value" placeholder="请选择" @change="selectChange">
+                    <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value">
+                    </el-option>
+                  </el-select>
+                  <div class="right_image_con">
+                    <img :src="item.resource" alt="" v-for="(item, index) in imaArr" :key="item.location"
+                         class="right_img_list" @click="()=>swicthCurLayout(index,item.location)"
+                         :class="selectedImages==index?'focus':''">
+                  </div>
+
+                </div>
+
+                <div class="right_video_con" :class="classLayout">
+                  <video-layout v-bind:cur_index="index+1" v-for="(item, index) in layoutArr"
+                                v-bind:style_name="selectItem==index"
+                                v-bind:ele="item"
+                                @click.native="()=>getItemFocus(index)"/>
+                </div>
+
+
+                <div class="right_polling">
+                  <span>轮询间隔</span>
+
+                  <el-radio v-model="nums" :label=5 @change="handleChange">
+                    5秒
+                  </el-radio>
+
+                  <el-radio v-model="nums" :label=15 @change="handleChange">
+                    15秒
+                  </el-radio>
+
+                  <div>
+                    <el-input-number
+                        v-model="nums" controls-position="right" @change="handleChange" :min="5" :max="Infinity"
+                        size="small"
+                        :step="1">
+                    </el-input-number>
+                    <span>秒</span>
+                  </div>
+                </div>
+              </div>
+            </el-col>
+          </el-row>
+          </div>
+        `
+    })
+</script>
+
+
+</body>
+</html>
+<script>
+    <!--    使用eventbus-->
+    document.addEventListener('dragstart', function (event) {
+        var NY = false
+        if (event.target.parentNode.parentNode && event.target.parentNode.parentNode.className) {
+            var elemClassName = event.target.parentNode.parentNode.className
+        }
+        event.dataTransfer.setData('id', event.target.parentNode.dataset.id) //设置id
+        console.log('elemClassName', event)
+        event.dataTransfer.setData(
+            'NY',
+            elemClassName == 'cfr_list' ? true : false
+        ) //判断是否是可以拖拽的文本，并设置到事件的event参数中去
+    })
+    /* events fired on the drop targets */
+    document.addEventListener('dragover', function (event) {
+        // prevent default to allow drop
+        event.preventDefault()
+    }, false)
+
+    document.addEventListener('drop', function (event) {
+        // 阻止默认动作（如打开一些元素的链接）
+        event.preventDefault()
+        var id = event.dataTransfer.getData('id') //拖拽对应的id
+        var text = event.dataTransfer.getData('text') //获取拖拽的文本
+        // var NY = event.dataTransfer.getData('NY') //获取判断拖拽的元素是否是数据所在元素
+        // 移动拖动的元素到所选择的放置目标节点时判断，如果是加添加tab，反之不添加
+        //判断是否是对应的元素
+        // let tartget = event.target.classList;
+        // console.log(event.target.className, NY, event.target.className.indexOf('el-table') > -1)
+        // if ((Array.from(tartget).includes('every_ele')|| event.target.className.indexOf('el-table')>-1)&& NY == 'true') {
+        let htmlStr = `<span class="video_in_list">${text}</span>`
+        if (config_s.isPoll) {
+            EventBus.$emit('addList', {html: htmlStr, target: event.target});
+        } else {
+            EventBus.$emit('replaceList', {html: htmlStr, target: event.target});
+        }
+        // }
+    }, true)
+</script>

@@ -1,0 +1,1095 @@
+
+/*一画面布局*/
+.one_full .every_ele{
+    width: 99%;
+    height: 99%;
+}
+
+/*二画面布局*/
+/*布局-*/
+.right_video_con.com_two_left{
+    display: flex;
+    align-items: center;
+}
+.com_two_left .every_ele{
+    width: 50%;
+    height: 50%;
+}
+/*布局二*/
+.right_video_con.com_two_top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.com_two_top .every_ele{
+    width: 50%;
+    height: 50%;
+}
+/*布局三*/
+.right_video_con.change_two_top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.change_two_top .every_ele{
+    width: 99%;
+    height: 50%;
+}
+/*布局四*/
+.right_video_con.change_two_topBig{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.change_two_topBig .every_ele:nth-child(1){
+    width: 99%;
+    height: 75%;
+}
+.change_two_topBig .every_ele:nth-child(2){
+    width: 20%;
+    height: 25%;
+}
+
+/*三画面布局*/
+/*布局一*/
+.right_video_con.bot_top_three{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.bot_top_three .every_ele{
+    width: 50%;
+    height: 50%;
+}
+/*布局二*/
+.right_video_con.top_bot_three{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.top_bot_three .every_ele{
+    width: 50%;
+    height: 50%;
+}
+.top_bot_three .every_ele:nth-child(1){
+    width: 50%;
+    height: 50%;
+    margin:0 2%;
+}
+/*布局三*/
+.right_video_con.left_right_three{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.left_right_three .every_ele{
+    width: 50%;
+    height: 50%;
+}
+/*按顺序要求来*/
+.left_right_three .every_ele:nth-child(1){
+    order:1
+
+}
+.left_right_three .every_ele:nth-child(2){
+    order: 3;
+
+}
+.left_right_three .every_ele:nth-child(3){
+    order: 2;
+
+}
+/*布局四*/
+.right_video_con.right_left_three{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.right_left_three .every_ele{
+    width: 50%;
+    height: 50%;
+}
+.right_left_three .every_ele:nth-child(1){
+    width: 50%;
+    height: 50%;
+    margin:2% 0;
+}
+/*布局五*/
+.right_video_con.one_col_three{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+}
+.one_col_three .every_ele{
+    width: 33%;
+    height: 50%;
+}
+/*布局六*/
+
+.right_video_con.big_top_three{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+}
+.big_top_three .every_ele{
+    width: 30%;
+    height: 30%;
+}
+.big_top_three .every_ele:nth-child(1){
+    width: 100%;
+    height: 70%;
+}
+
+
+/*四画面布局*/
+
+/*布局一*/
+.right_video_con.square_four{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+}
+.square_four .every_ele{
+    width: 50%;
+    height: 50%;
+}
+
+/*布局二*/
+
+.right_video_con.left_big_four{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.left_big_four .every_ele{
+    width: 33.3%;
+    height: 33.3%;
+}
+.left_big_four .every_ele:nth-child(1){
+    width: 66.6%;
+    height: 100%;
+}
+
+/*布局三*/
+
+.right_video_con.right_big_four{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.right_big_four .every_ele{
+    width: 33.3%;
+    height: 33.3%;
+}
+.right_big_four .every_ele:nth-child(2){
+    width: 66.6%;
+    height: 100%;
+    order: 4;
+}
+
+/*布局四*/
+.right_video_con.top_big_four{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.top_big_four .every_ele{
+    width: 33.3%;
+    height: 33.3%;
+}
+.top_big_four .every_ele:nth-child(1){
+    height: 66.6%;
+    width: 100%;
+}
+
+/*布局五*/
+.right_video_con.bot_big_four{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.bot_big_four .every_ele{
+    width: 33.3%;
+    height: 33.3%;
+}
+.bot_big_four .every_ele:nth-child(4){
+    height: 66.6%;
+    width: 100%;
+}
+/*布局六*/
+.right_video_con.full_inner_four{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+
+}
+.full_inner_four .every_ele{
+    height: 30%;
+    width: 28%;
+    margin-bottom: 2%;
+}
+.full_inner_four .every_ele:nth-child(1){
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+/*布局七*/
+.right_video_con.big_top_min_bot_four{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+
+}
+.big_top_min_bot_four .every_ele{
+    height: 30%;
+    width: 28%;
+}
+.big_top_min_bot_four .every_ele:nth-child(1){
+    height: 70%;
+    width: 100%;
+
+}
+
+/***
+*五画面布局***************************
+*/
+/*布局一*/
+.right_video_con.top_big_five{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+
+}
+.top_big_five .every_ele{
+    height: 33.3%;
+    width: 25%;
+}
+.top_big_five .every_ele:nth-child(1){
+    height: 66.6%;
+    width: 100%;
+
+}
+/*布局二*/
+.right_video_con.bot_big_five{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+
+}
+.bot_big_five .every_ele{
+    height: 33.3%;
+    width: 25%;
+}
+.bot_big_five .every_ele:nth-child(5){
+    height: 66.6%;
+    width: 100%;
+}
+/*布局三*/
+
+.right_video_con.left_big_five{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.left_big_five .every_ele{
+    height: 25%;
+    width: 33.3%;
+}
+.left_big_five .every_ele:nth-child(1){
+    height: 100%;
+    width: 66.6%;
+}
+/*布局四*/
+
+.right_video_con.right_big_five{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.right_big_five .every_ele{
+    height: 25%;
+    width: 33.3%;
+}
+.right_big_five .every_ele:nth-child(2){
+    height: 100%;
+    width: 66.6%;
+    order: 5;
+}
+/*布局五*/
+
+.right_video_con.top_less_big_five{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+
+}
+.top_less_big_five .every_ele{
+    height: 25%;
+    width: 50%;
+}
+.top_less_big_five .every_ele:nth-child(1){
+    height: 50%;
+    width: 100%;
+}
+/*布局六*/
+
+.right_video_con.top_big_half_five{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+
+}
+.top_big_half_five .every_ele{
+    height: 30%;
+    width: 20%;
+}
+.top_big_half_five .every_ele:nth-child(1){
+    height: 70%;
+    width: 100%;
+}
+/****
+六画面布局
+ */
+
+/*布局一*/
+.right_video_con.left_top_big_six{
+    display: block;
+
+    font-size:0
+
+}
+.left_top_big_six .every_ele{
+    height: 33.3%;
+    width: 33.3%;
+    display: inline-block;
+
+
+}
+.left_top_big_six .every_ele:nth-child(1){
+    height: 66.5%;
+    width: 66.5%;
+    float: left;
+
+}
+/*布局二*/
+
+.right_video_con.right_top_big_six{
+    display: block;
+    font-size:0
+
+}
+.right_top_big_six .every_ele{
+    height: 33.3%;
+    width: 33.3%;
+    display: inline-block;
+
+}
+.right_top_big_six .every_ele:nth-child(2){
+    height: 66.5%;
+    width: 66.5%;
+    float: right;
+}
+/*布局三*/
+
+.right_video_con.right_bot_big_six{
+    display: block;
+    font-size:0
+
+}
+.right_bot_big_six .every_ele{
+    height: 33.3%;
+    width: 33.3%;
+    display: inline-block;
+
+}
+.right_bot_big_six .every_ele:nth-child(5){
+    height: 66.5%;
+    width: 66.5%;
+    float: right;
+
+}
+/*布局四*/
+
+.right_video_con.left_bot_big_six{
+    display: block;
+    font-size:0
+
+}
+.left_bot_big_six .every_ele{
+    height: 33.3%;
+    width: 33.3%;
+    display: inline-block;
+
+}
+.left_bot_big_six .every_ele:nth-child(4){
+    height: 66.5%;
+    width: 66.5%;
+    float: left;
+
+}
+/*布局五*/
+.right_video_con.two_col_six{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+
+}
+.two_col_six .every_ele{
+    height: 50%;
+    width: 33.3%;
+}
+/*布局六*/
+.right_video_con.two_col_not_av_six{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    flex-direction: column;
+
+}
+.two_col_not_av_six .every_ele{
+    height: 25%;
+    width: 50%;
+}
+.two_col_not_av_six .every_ele:nth-child(2){
+    order: 2;
+}
+.two_col_not_av_six .every_ele:nth-child(4){
+    order: 4;
+}
+/*布局七*/
+.right_video_con.top_big_six{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+
+}
+.top_big_six .every_ele{
+    height: 25%;
+    width: 20%;
+}
+.top_big_six .every_ele:nth-child(1){
+    height: 75%;
+    width: 100%;
+}
+
+/*
+**七画面****************************************************************
+*/
+/*
+**一布局
+*/
+.right_video_con.one_seven{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    position: relative;
+}
+.one_seven .every_ele{
+    height: 25%;
+    width: 25%;
+}
+.one_seven .every_ele:nth-child(1),.one_seven .every_ele:nth-child(2),.one_seven .every_ele:nth-child(3){
+    height: 49.6%;
+    width: 50%;
+}
+.one_seven .every_ele:nth-child(6),.one_seven .every_ele:nth-child(7){
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.one_seven .every_ele:nth-child(6){
+    margin-right: 25%;
+}
+/*
+布局二
+*/
+.right_video_con.two_seven{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    position: relative;
+}
+.two_seven .every_ele{
+    height: 25%;
+    width: 25%;
+}
+.two_seven .every_ele:nth-child(1),.two_seven .every_ele:nth-child(2),.two_seven .every_ele:nth-child(5){
+    height: 49.6%;
+    width: 50%;
+}
+.two_seven .every_ele:nth-child(6),.two_seven .every_ele:nth-child(7){
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.two_seven .every_ele:nth-child(6){
+    margin-left: 25%;
+}
+/*
+***布局三
+*/
+.right_video_con.three_seven{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    position: relative;
+}
+.three_seven .every_ele{
+    height: 25%;
+    width: 25%;
+}
+.three_seven .every_ele:nth-child(1),.three_seven .every_ele:nth-child(6),.three_seven .every_ele:nth-child(7){
+    height: 49.6%;
+    width: 50%;
+}
+.three_seven .every_ele:nth-child(4),.three_seven .every_ele:nth-child(5){
+    position: absolute;
+    right: 0;
+    top: 25%;
+}
+.three_seven .every_ele:nth-child(5){
+    margin-right: 25%;
+}
+/*
+**布局四
+*/
+.right_video_con.four_seven{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    position: relative;
+}
+.four_seven .every_ele{
+    height: 25%;
+    width: 25%;
+}
+.four_seven .every_ele:nth-child(3),.four_seven .every_ele:nth-child(6),.four_seven .every_ele:nth-child(7){
+    height: 49.6%;
+    width: 50%;
+}
+.four_seven .every_ele:nth-child(4),.four_seven .every_ele:nth-child(5){
+    position: absolute;
+    left: 0;
+    top: 25%;
+}
+.four_seven .every_ele:nth-child(5){
+    margin-left: 25%;
+}
+/*
+布局五
+*/
+.right_video_con.five_seven{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+
+}
+.five_seven .every_ele{
+    height: 30%;
+    width: 16%;
+    margin-bottom: 2%;
+}
+.five_seven .every_ele:nth-child(1){
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+/*
+布局6
+*/
+.right_video_con.six_seven{
+    display: block;
+
+    font-size:0
+
+}
+.six_seven .every_ele{
+    height: 30%;
+    width: 16.6%;
+    display: inline-block;
+
+}
+.six_seven .every_ele:nth-child(1){
+    height: 75%;
+    width: 100%;
+    float: left;
+
+}
+/* 八页面 */
+/* 布局一 */
+.right_video_con.first_8 {
+    display: block;
+}
+.first_8 .every_ele {
+    display: inline-block;
+    width: 25%;
+    height: 24.2%;
+}
+.first_8 .every_ele:nth-child(1) {
+    float: left;
+    width: 75%;
+    height: 74.6%;
+}
+/* 布局二 */
+.right_video_con.second_8 {
+    display: block;
+}
+.second_8 .every_ele {
+    display: inline-block;
+    width: 25%;
+    height: 24.2%;
+}
+.second_8 .every_ele:nth-child(2) {
+    float: right;
+    width: 75%;
+    height: 74.6%;
+}
+/* 布局三 */
+.right_video_con.third_8 {
+    display: block;
+}
+.third_8 .every_ele {
+    display: inline-block;
+    width: 25%;
+    height: 24.2%;
+}
+.third_8 .every_ele:nth-child(6) {
+    float: right;
+    width: 75%;
+    height: 74.6%;
+}
+/* 布局四 */
+.right_video_con.fourth_8 {
+    display: block;
+}
+.fourth_8 .every_ele {
+    display: inline-block;
+    width: 25%;
+    height: 24.2%;
+}
+.fourth_8 .every_ele:nth-child(5) {
+    float: left;
+    width: 75%;
+    height: 74.6%;
+}
+/* 布局五 */
+.right_video_con.fifth_8 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.fifth_8 .every_ele {
+    width: 50%;
+    height: 25%;
+}
+/* 布局六 */
+.right_video_con.sixth_8 {
+    display: block;
+}
+.sixth_8 .every_ele {
+    display: inline-block;
+    width: 14.28%;
+    height: 25.65%;
+}
+.sixth_8 .every_ele:nth-child(1) {
+    float: left;
+    width: 100%;
+    height: 74.6%;
+}
+/* 九画面 */
+/* 布局一 */
+.right_video_con.first_9 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.first_9 .every_ele {
+    width: 33.3%;
+    height: 33.3%;
+}
+/* 布局二 */
+.right_video_con.second_9 {
+    display: block;
+}
+.second_9 .every_ele {
+    display: inline-block;
+    width: 12.48%;
+    height: 25.65%;
+}
+.second_9 .every_ele:nth-child(1) {
+    float: left;
+    width: 100%;
+    height: 74.6%;
+}
+/* 十画面 */
+/* 布局一 */
+.right_video_con.first_10 {
+    display: block;
+}
+.first_10 .every_ele {
+    display: inline-block;
+    width: 25%;
+    height: 24.2%;
+}
+.first_10 .every_ele:nth-child(1) {
+    float: left;
+    width: 50%;
+    height: 49.4%;
+}
+.first_10 .every_ele:nth-child(2) {
+    float: right;
+    width: 50%;
+    height: 49.4%;
+}
+/* 布局二 */
+.right_video_con.second_10 {
+    display: block;
+}
+.second_10 .every_ele {
+    display: inline-block;
+    width: 25%;
+    height: 24.2%;
+}
+.second_10 .every_ele:nth-child(9) {
+    float: left;
+    width: 50%;
+    height: 49.4%;
+}
+.second_10 .every_ele:nth-child(10) {
+    float: right;
+    width: 50%;
+    height: 49.4%;
+}
+/* 布局三 */
+.right_video_con.third_10 {
+    display: block;
+}
+.third_10 .every_ele {
+    display: inline-block;
+    width: 25%;
+    height: 24.2%;
+}
+.third_10 .every_ele:nth-child(1) {
+    float: left;
+    width: 50%;
+    height: 49.4%;
+}
+.third_10 .every_ele:nth-child(6) {
+    float: left;
+    width: 50%;
+    height: 49.4%;
+}
+/* 布局四 */
+.right_video_con.fourth_10 {
+    display: block;
+}
+.fourth_10 .every_ele {
+    display: inline-block;
+    width: 25%;
+    height: 24.2%;
+}
+.fourth_10 .every_ele:nth-child(3) {
+    float: right;
+    width: 50%;
+    height: 49.4%;
+}
+.fourth_10 .every_ele:nth-child(8) {
+    float: right;
+    width: 50%;
+    height: 49.4%;
+}
+/* 布局五 */
+.right_video_con.fifth_10 {
+    display: block;
+}
+.fifth_10 .every_ele {
+    display: inline-block;
+    width: 25%;
+    height: 24.2%;
+}
+.fifth_10 .every_ele:nth-child(5) {
+    float: left;
+    width: 50%;
+    height: 49.4%;
+}
+.fifth_10 .every_ele:nth-child(6) {
+    float: right;
+    width: 50%;
+    height: 49.4%;
+}
+/* 布局六 */
+.right_video_con.sixth_10 {
+    display: block;
+}
+.sixth_10 .every_ele {
+    display: inline-block;
+    width: 25%;
+    height: 24.2%;
+}
+.sixth_10 .every_ele:nth-child(1) {
+    margin-right: 50%;
+}
+.sixth_10 .every_ele:nth-child(4) {
+    margin-right: 50%;
+}
+.sixth_10 .every_ele:nth-child(2) {
+    margin-left: 25%;
+    margin-top: -87px;
+    margin-bottom: -83px;
+    float: left;
+    width: 50%;
+    height: 49.4%;
+}
+.sixth_10 .every_ele:nth-child(6) {
+    margin-right: 50%;
+}
+.sixth_10 .every_ele:nth-child(9) {
+    margin-right: 50%;
+}
+.sixth_10 .every_ele:nth-child(7) {
+    margin-left: 25%;
+    margin-top: -87px;
+    margin-bottom: -83px;
+    float: left;
+    width: 50%;
+    height: 49.4%;
+}
+/* 十三画面布局 */
+/* 布局一 */
+.right_video_con.top_left_Big {
+    display: block;
+    align-content: flex-start;//侧轴
+    font-size:0;
+}
+.top_left_Big .every_ele {
+    display: inline-block;
+    width: 25%;
+    height: 24.2%;
+}
+.top_left_Big .every_ele:nth-child(1) {
+    float: left;
+    width: 50%;
+    height: 49.4%;
+}
+/* 布局二 */
+.right_video_con.top_right_Big {
+    display: block;
+}
+.top_right_Big .every_ele {
+    display: inline-block;
+    width: 25%;
+    height: 24.2%;
+}
+.top_right_Big .every_ele:nth-child(3) {
+    float: right;
+    width: 50%;
+    height: 49.4%;
+}
+/* 布局三 */
+.right_video_con.bottom_right_Big {
+    display: block;
+}
+.bottom_right_Big .every_ele {
+    display: inline-block;
+    width: 25%;
+    height: 24.2%;
+}
+.bottom_right_Big .every_ele:nth-child(11) {
+    float: right;
+    width: 50%;
+    height: 49.4%;
+}
+/* 布局四 */
+.right_video_con.bottom_left_Big {
+    display: block;
+}
+.bottom_left_Big .every_ele {
+    display: inline-block;
+    width: 25%;
+    height: 24.2%;
+}
+.bottom_left_Big .every_ele:nth-child(9) {
+    float: left;
+    width: 50%;
+    height: 49.4%;
+}
+/* 布局五 */
+.right_video_con.center_Big {
+    display: block;
+}
+.center_Big .every_ele {
+    display: inline-block;
+    width: 25%;
+    height: 24.2%;
+}
+.center_Big .every_ele:nth-child(5) {
+    margin-right: 50%;
+}
+.center_Big .every_ele:nth-child(8) {
+    margin-right: 50%;
+}
+.center_Big .every_ele:nth-child(6) {
+    margin-left: 25%;
+    margin-top: -87px;
+    margin-bottom: -83px;
+    float: left;
+    width: 50%;
+    height: 49.4%;
+}
+/* 布局六 */
+.right_video_con.top_center_Big {
+    display: block;
+}
+.top_center_Big .every_ele {
+    display: inline-block;
+    width: 25%;
+    height: 24.2%;
+}
+.top_center_Big .every_ele:nth-child(1) {
+    margin-right: 50%;
+}
+.top_center_Big .every_ele:nth-child(4) {
+    margin-right: 50%;
+}
+.top_center_Big .every_ele:nth-child(2) {
+    margin-left: 25%;
+    margin-top: -87px;
+    margin-bottom: -83px;
+    float: left;
+    width: 50%;
+    height: 49.4%;
+}
+/*
+十五画面布局
+*/
+.right_video_con.fifteen{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;//侧轴
+}
+.fifteen .every_ele{
+    height: 16.6%;
+    width: 33.3%;
+}
+
+/* 十六画面布局 */
+.right_video_con.sixteen_full {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.sixteen_full .every_ele {
+    width: 24%;
+    height: 25%;
+}
+/* 十八画面布局 */
+.right_video_con.eighteen_full {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.eighteen_full .every_ele {
+    width: 33%;
+    height: 16.6%;
+}
+/* 二十画面布局 */
+.right_video_con.twenty_full {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.twenty_full .every_ele {
+    width: 19.6%;
+    height: 25%;
+}
+/* 二十四画面布局 */
+.right_video_con.twenty_four_full {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.twenty_four_full .every_ele {
+    width: 16.3%;
+    height: 25%;
+}
+/* 二十五画面布局 */
+.right_video_con.twenty_five_full {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.twenty_five_full .every_ele {
+    width: 19.6%;
+    height: 20%;
+}
+
+.every_ele.fullScreen{
+    position: absolute;
+    width: 100% !important;
+    height: 100% !important;
+    left: 0;
+    top: 0;
+}
+
+
+
+
+
+
+
+
+
